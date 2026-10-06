@@ -16,6 +16,10 @@ npm run preview  # preview the production build
 - `src/App.jsx`: page layout and interactive components (agent loop stepper, autonomy slider, FAQ accordion)
 - `src/data.js`: all page content
 - `src/App.css`: styles
+- `office.html` + `src/Office.jsx`: the Agent Office page, an animated office where multiple agents collaborate
+- `src/office/timeline.js`: the scripted scene; every frame is derived from this event list
+- `src/office/Person.jsx`: the SVG avatar used for each agent
+- `src/Office.css`: office scene and page styles
 
 ## Deployment
 

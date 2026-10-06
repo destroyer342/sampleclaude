@@ -27,6 +27,8 @@ import {
   faqs,
 } from './data.js';
 
+const officeUrl = `${import.meta.env.BASE_URL}office.html`;
+
 const navLinks = [
   { id: 'what', label: 'What' },
   { id: 'history', label: 'History' },
@@ -260,6 +262,7 @@ export default function App() {
           {navLinks.map((s) => (
             <a key={s.id} href={`#${s.id}`}>{s.label}</a>
           ))}
+          <a href={officeUrl} className="nav-cta">🏢 Agent Office</a>
         </div>
       </nav>
 
@@ -269,7 +272,10 @@ export default function App() {
           AI that doesn't just answer. It plans, uses tools, takes action, and works toward
           goals with growing independence.
         </p>
-        <a href="#what" className="btn">Start exploring ↓</a>
+        <div className="hero-actions">
+          <a href="#what" className="btn">Start exploring ↓</a>
+          <a href={officeUrl} className="btn btn-ghost">🏢 Watch agents at work</a>
+        </div>
       </header>
 
       <main className="container">
@@ -400,6 +406,14 @@ export default function App() {
           <div className="grid">
             {multiAgent.map((m) => <Card key={m.name} icon={m.icon} title={m.name} text={m.text} />)}
           </div>
+          <a href={officeUrl} className="office-cta">
+            <span className="office-cta-icon">🏢</span>
+            <span>
+              <strong>See it in action: the Agent Office</strong>
+              <span>An animated office where an orchestrator and four specialist agents build an app together.</span>
+            </span>
+            <span className="office-cta-arrow">→</span>
+          </a>
         </Section>
 
         <Section id="tools" title="Tools & Protocols" subtitle="How agents reach beyond the model to act in the world.">

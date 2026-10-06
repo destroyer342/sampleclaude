@@ -16,3 +16,10 @@ npm run preview  # preview the production build
 - `src/App.jsx`: page layout and interactive components (agent loop stepper, autonomy slider, FAQ accordion)
 - `src/data.js`: all page content
 - `src/App.css`: styles
+
+## Deployment
+
+Pushes to `main` (or the current default branch) are built and deployed to GitHub Pages by `.github/workflows/deploy.yml`:
+https://destroyer342.github.io/sampleclaude/
+
+One-time setup: in the repo go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.

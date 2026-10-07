@@ -410,7 +410,7 @@ export default function App() {
             <span className="office-cta-icon">🏢</span>
             <span>
               <strong>See it in action: the Agent Office</strong>
-              <span>An animated office where an orchestrator and four specialist agents build an app together.</span>
+              <span>An animated office where an orchestrator and four specialist agents migrate SharePoint 2016 workflows to Power Automate and Power Apps.</span>
             </span>
             <span className="office-cta-arrow">→</span>
           </a>

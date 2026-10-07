@@ -18,7 +18,7 @@ export const AGENTS = {
   },
   researcher: {
     name: 'Riley',
-    role: 'Researcher',
+    role: 'Analyst',
     home: [19.5, 55],
     desk: { x: 17, y: 58, screen: 'research' },
     look: { skin: '#c68642', hair: '#111827', hairStyle: 'curly', shirt: '#0ea5e9', pants: '#1e3a5f', accessory: 'glasses' },
@@ -32,7 +32,7 @@ export const AGENTS = {
   },
   coder: {
     name: 'Cody',
-    role: 'Coder',
+    role: 'Developer',
     home: [63.5, 55],
     desk: { x: 61, y: 58, screen: 'code' },
     look: { skin: '#8d5524', hair: '#0f172a', hairStyle: 'short', shirt: '#f59e0b', pants: '#1f2937', accessory: 'headphones' },
@@ -47,10 +47,10 @@ export const AGENTS = {
 };
 
 export const CARDS = {
-  research: { label: 'Research APIs', owner: 'researcher' },
-  design: { label: 'Design UI', owner: 'designer' },
-  code: { label: 'Write code', owner: 'coder' },
-  test: { label: 'Test & review', owner: 'tester' },
+  research: { label: 'Audit SP2016', owner: 'researcher' },
+  design: { label: 'Design app', owner: 'designer' },
+  code: { label: 'Build flows', owner: 'coder' },
+  test: { label: 'Test & UAT', owner: 'tester' },
 };
 
 export const COLUMNS = ['To do', 'Doing', 'Done'];
@@ -76,10 +76,10 @@ const log = (t, agent, text) => ({ t, type: 'log', agent, text });
 export const EVENTS = [
   // Brief
   walk(0, 'user', [9, 33], 1600),
-  say(1700, 'user', 'Can you build me a weather app? ☀️', 3000),
-  log(1700, 'user', 'You asked the team for a weather dashboard app.'),
+  say(1700, 'user', 'New task: rebuild our SharePoint 2016 workflows and InfoPath templates as modern Power Automate flows and Power Apps.', 4600),
+  log(1700, 'user', 'You asked the team to migrate SharePoint 2016 workflows and InfoPath forms to Power Automate and Power Apps.'),
   send(2600, 'user', 'boss', '🎯', 'Goal', 1200),
-  say(3800, 'boss', 'On it! Let me plan the work.', 2200),
+  say(3800, 'boss', 'On it! Let me plan the migration.', 2200),
   log(3800, 'boss', 'Orion, the orchestrator, received the goal.'),
 
   // Plan
@@ -95,60 +95,60 @@ export const EVENTS = [
   walk(11000, 'boss', [50, 37], 1400),
 
   // Parallel work
-  send(12600, 'boss', 'researcher', '🔎', 'Research APIs'),
-  send(12900, 'boss', 'designer', '🎨', 'Design UI'),
-  say(12900, 'boss', 'Research and design can run in parallel.', 2600),
-  log(12600, 'boss', 'Orion delegated research and design. Both run in parallel.'),
+  send(12600, 'boss', 'researcher', '🔎', 'Audit legacy'),
+  send(12900, 'boss', 'designer', '🎨', 'Design app'),
+  say(12900, 'boss', 'Audit and design can run in parallel.', 2600),
+  log(12600, 'boss', 'Orion delegated the legacy audit and the app design. Both run in parallel.'),
   card(13900, 'research', 1),
   work(13900, 'researcher', true),
-  say(13900, 'researcher', '🔎 Comparing weather APIs…'),
+  say(13900, 'researcher', '🔎 Auditing 14 workflows and 9 InfoPath forms…'),
   card(14200, 'design', 1),
   work(14200, 'designer', true),
-  say(14200, 'designer', '🎨 Sketching the layout…'),
-  say(17500, 'researcher', 'Found a free API with hourly forecasts ✔️', 2500),
+  say(14200, 'designer', '🎨 Designing Power Apps screens…'),
+  say(17500, 'researcher', 'Every field and approval rule mapped ✔️', 2500),
   work(18500, 'researcher', false),
   card(18500, 'research', 2),
-  send(18500, 'researcher', 'coder', '📄', 'API notes', 1500),
-  log(18500, 'researcher', 'Riley handed the API notes to Cody.'),
-  say(19300, 'designer', 'Mockup ready! ✨', 2200),
+  send(18500, 'researcher', 'coder', '📄', 'Migration map', 1500),
+  log(18500, 'researcher', 'Riley handed the migration map (fields, rules, approvals) to Cody.'),
+  say(19300, 'designer', 'Canvas app screens ready! ✨', 2200),
   work(20000, 'designer', false),
   card(20000, 'design', 2),
-  send(20000, 'designer', 'coder', '🖼️', 'Mockup', 1300),
-  log(20000, 'designer', 'Dana handed the UI mockup to Cody.'),
+  send(20000, 'designer', 'coder', '🖼️', 'App screens', 1300),
+  log(20000, 'designer', 'Dana handed the Power Apps screen designs to Cody.'),
 
   // Build
   card(21500, 'code', 1),
   work(21500, 'coder', true),
-  say(21500, 'coder', '💻 Writing the app…'),
-  log(21500, 'coder', 'Cody started coding once both inputs arrived.'),
+  say(21500, 'coder', '⚡ Building Power Automate flows and the Power App…'),
+  log(21500, 'coder', 'Cody started building once both inputs arrived.'),
   say(22500, 'researcher', '☕ Coffee break!', 2500),
   say(23200, 'designer', '☕ Me too!', 2000),
   say(26000, 'coder', 'Done! Sending it to Tess.', 1800),
   work(26500, 'coder', false),
   card(26500, 'code', 2),
-  send(26500, 'coder', 'tester', '📦', 'Code v1', 1200),
-  log(26500, 'coder', 'Cody passed version 1 to Tess for testing.'),
+  send(26500, 'coder', 'tester', '📦', 'Solution v1', 1200),
+  log(26500, 'coder', 'Cody passed version 1 of the flows and app to Tess for testing.'),
 
   // Test & fix
   card(27700, 'test', 1),
   work(27700, 'tester', true),
-  say(27700, 'tester', '🧪 Running 24 tests…'),
-  say(30500, 'tester', '🐞 Bug! Temperatures show in Kelvin.'),
+  say(27700, 'tester', '🧪 Testing approvals end to end…'),
+  say(30500, 'tester', '🐞 Bug! Approvals still go to the old SP2016 group.'),
   work(30500, 'tester', false),
   card(30500, 'code', 1, true),
   log(30500, 'tester', 'Tess found a bug and sent it back. This is a review loop.'),
   send(31200, 'tester', 'coder', '🐞', 'Bug report', 1200),
   say(32400, 'tester', 'Waiting for the fix…'),
   work(32400, 'coder', true),
-  say(32400, 'coder', '🔧 Converting to °C…'),
+  say(32400, 'coder', '🔧 Pointing approvals to the new Microsoft 365 group…'),
   say(35000, 'coder', 'Fixed! ✅', 1500),
   work(35000, 'coder', false),
   card(35000, 'code', 2),
-  send(35000, 'coder', 'tester', '📦', 'Code v2', 1200),
+  send(35000, 'coder', 'tester', '📦', 'Solution v2', 1200),
   log(35000, 'coder', 'Cody fixed the bug and sent version 2.'),
   work(36300, 'tester', true),
-  say(36300, 'tester', '🧪 Re-running tests…'),
-  say(38800, 'tester', '✅ All 24 tests pass!', 2500),
+  say(36300, 'tester', '🧪 Re-running test cases…'),
+  say(38800, 'tester', '✅ All 18 test cases pass!', 2500),
   work(38800, 'tester', false),
   card(38800, 'test', 2),
   log(38800, 'tester', 'All tests pass. Every task is done.'),
@@ -156,14 +156,14 @@ export const EVENTS = [
   // Deliver
   send(39500, 'tester', 'boss', '📋', 'Test report', 1500),
   log(39500, 'tester', 'Tess reported the results back to Orion.'),
-  say(41000, 'boss', 'Reviewing everything…', 1800),
+  say(41000, 'boss', 'Reviewing the solution…', 1800),
   work(41000, 'boss', true),
   work(42800, 'boss', false),
   walk(42800, 'boss', [16, 33], 1700),
-  say(44500, 'boss', "Here's your weather app! 🌤️", 3000),
-  send(45000, 'boss', 'user', '🌤️', 'Weather app', 1000),
-  log(45000, 'boss', 'Orion delivered the finished app to you.'),
-  say(46200, 'user', 'Amazing, thank you! 🙌', 3000),
+  say(44500, 'boss', 'Your new Power Automate flows and Power App are ready! 🚀', 3000),
+  send(45000, 'boss', 'user', '🚀', 'Modern solution', 1000),
+  log(45000, 'boss', 'Orion delivered the modernised workflows and forms to you.'),
+  say(46200, 'user', 'Goodbye InfoPath, thank you! 🙌', 3000),
   { t: 46200, type: 'celebrate', dur: 3800 },
   walk(50200, 'boss', [50, 37], 1700),
   walk(50200, 'user', [-6, 33], 1600),
@@ -225,8 +225,10 @@ export function stateAt(t) {
 
 export function packetPosition({ from, to, p }) {
   const e = ease(p);
-  const x = from[0] + (to[0] - from[0]) * e;
-  // Start and end around chest height and arc upward in between.
-  const y = from[1] - 5 + (to[1] - from[1]) * e - Math.sin(Math.PI * p) * 6;
-  return [x, y];
+  const dx = to[0] - from[0];
+  const dy = to[1] - from[1];
+  // Start and end around chest height and arc upward in between; short
+  // hand-offs get a flatter arc so they don't cover speech bubbles.
+  const arc = Math.min(6, Math.hypot(dx, dy) * 0.35);
+  return [from[0] + dx * e, from[1] - 4 + dy * e - Math.sin(Math.PI * p) * arc];
 }

@@ -648,7 +648,26 @@
   line-height: 1.3;
   text-align: center;
   transform: translateX(-50%);
-  animation: pop 0.25s ease;
+  transform-origin: bottom center;
+  animation: bubble-pop 0.25s ease;
+}
+
+@keyframes bubble-pop {
+  from { transform: translateX(-50%) scale(0.4); opacity: 0; }
+  to { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+.bubble-user {
+  left: -1cqw;
+  max-width: 24cqw;
+  transform: none;
+  transform-origin: bottom left;
+  text-align: left;
+  animation-name: pop;
+}
+
+.bubble-user::after {
+  left: 3.75cqw;
 }
 
 .bubble::after {

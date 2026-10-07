@@ -56,7 +56,7 @@ function Agent({ id, state, celebrate }) {
 
   return (
     <div className="agent" style={{ left: cq(x), top: cq(y), zIndex: Math.round(y * 10) }}>
-      {bubble && <div className="bubble">{bubble}</div>}
+      {bubble && <div className={`bubble bubble-${id}`}>{bubble}</div>}
       <Person look={AGENTS[id].look} walking={walking} working={working} celebrate={celebrate} />
     </div>
   );
@@ -187,10 +187,10 @@ const fmt = (ms) => {
 
 const concepts = [
   { icon: '🧭', title: 'Orchestrator–workers', text: 'Orion never does the work itself. It plans, delegates, and checks the results, just like a lead agent splitting a task among sub-agents.' },
-  { icon: '🔀', title: 'Parallel work', text: 'Research and design don\'t depend on each other, so Riley and Dana work at the same time. That cuts the total time.' },
-  { icon: '📨', title: 'Hand-offs', text: 'Agents pass structured outputs (notes, mockups, code) to the next specialist. The flying packets are those messages.' },
+  { icon: '🔀', title: 'Parallel work', text: 'Auditing the old system and designing the new app don\'t depend on each other, so Riley and Dana work at the same time. That cuts the total time.' },
+  { icon: '📨', title: 'Hand-offs', text: 'Agents pass structured outputs (a migration map, screen designs, a solution build) to the next specialist. The flying packets are those messages.' },
   { icon: '📋', title: 'Shared state', text: 'The task board is the team\'s shared memory. Every agent can see what is to do, in progress, and done.' },
-  { icon: '🔁', title: 'Review loop', text: 'Tess catches a bug and sends it back. Testing and fixing until the checks pass is what makes agent teams reliable.' },
+  { icon: '🔁', title: 'Review loop', text: 'Tess catches an approval bug and sends it back. Testing and fixing until the checks pass is what makes agent teams reliable.' },
   { icon: '🙋', title: 'Human in the loop', text: 'You set the goal and receive the result. The agents do the busywork, and you stay in charge.' },
 ];
 
@@ -231,7 +231,7 @@ export default function Office() {
 
       <header className="hero office-hero">
         <h1>The <span className="gradient">Agent Office</span></h1>
-        <p>Watch a team of AI agents turn one request into a finished app by planning, splitting up the work, handing off results, and fixing bugs together.</p>
+        <p>Watch a team of AI agents modernise legacy SharePoint 2016 workflows and InfoPath forms into Power Automate and Power Apps by planning, splitting up the work, handing off results, and fixing bugs together.</p>
       </header>
 
       <main className="container office-page">
